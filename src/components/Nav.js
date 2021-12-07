@@ -1,19 +1,15 @@
-const Nav = ({ onChange }) => {
-  const redir = (e) => {
-    onChange(e.target.innerText);
-  };
-
+const Nav = () => {
   return (
     <nav className="main-nav">
       <ul>
         <li>
-          <button onClick={redir}>Football</button>
+          <a href="#">Sking</a>
         </li>
         <li>
-          <button onClick={redir}>Hiking</button>
+          <a href="#">Surfing</a>
         </li>
         <li>
-          <button onClick={redir}>Skateboard</button>
+          <a href="#">Skateboarding</a>
         </li>
       </ul>
     </nav>

@@ -6,9 +6,6 @@ import APP_KEY from "./config";
 
 let apiKey = APP_KEY;
 
-let API_URL =
-  "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key={apiKey}&tags={query}&per_page=24&format=json&nojsoncallback=1";
-
 const App = () => {
   const [images, SetImages] = useState([]);
   const [search, setSearch] = useState([""]);
@@ -19,10 +16,10 @@ const App = () => {
   }, [query]);
 
   const getImages = async () => {
-    const res = await fetch(
+    const response = await fetch(
       `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`
     );
-    const data = await res.json();
+    const data = await response.json();
     SetImages(data.photos.photo);
   };
 
@@ -42,7 +39,7 @@ const App = () => {
   return (
     <div className="container">
       <Form onAdd={updateSearch} onSubmit={searchImages} />
-      <Nav onChange={updateQuery} value={search} />
+      <Nav onChange={updateQuery} />
       <div className="photo-container">
         <Photo imgArray={images} />
       </div>

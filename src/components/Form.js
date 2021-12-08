@@ -1,7 +1,6 @@
 const Form = ({ onAdd, onSubmit }) => {
   const submitSearch = (e) => {
     e.preventDefault();
-
     onSubmit();
   };
 
